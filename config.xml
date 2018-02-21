@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>khalti</name>
+    <displayName><![CDATA[Khalti]]></displayName>
+    <version><![CDATA[1.0.0]]></version>
+    <description><![CDATA[Payment Gateway Module for Khalti]]></description>
+    <author><![CDATA[Bibek M Acharya]]></author>
+    <tab><![CDATA[payments_gateway]]></tab>
+	<confirmUninstall><![CDATA[You will no longer be able to accept payments from Khalti. Are you sure you want to uninstall this module? ]]></confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>
