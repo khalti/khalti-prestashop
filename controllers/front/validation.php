@@ -74,9 +74,8 @@ class KhaltiValidationModuleFrontController extends ModuleFrontController
         $status_code = $validate['status_code'];
         $idx = $validate['idx'];
         $amount = $amount/100;
-        //var_dump($validate);die();
 
-        if($total == $amount && $idx!=null)
+        if($total == $amount && $idx!=null && $status_code == 200)
         {
             $message = $this->khalti_transaction($idx);
             $message = json_encode($message);
@@ -123,8 +122,8 @@ class KhaltiValidationModuleFrontController extends ModuleFrontController
         curl_setopt($ch, CURLOPT_POSTFIELDS,$args);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-/*      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);*/
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
         $headers = ['Authorization: Key '.$this->getSecretKey()];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -152,8 +151,8 @@ class KhaltiValidationModuleFrontController extends ModuleFrontController
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-/*      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);*/
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
         $headers = ['Authorization: Key '.Configuration::get('khalti_secret_key')];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
