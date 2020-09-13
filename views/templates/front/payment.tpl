@@ -22,7 +22,7 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<script src="https://khalti.com/static/khalti-checkout.js"></script>
+<script src="https://unpkg.com/khalti-checkout-web@latest/dist/khalti-checkout.iffe.js"></script>
 <script type="text/javascript">
 function termsCheck()
 {
@@ -49,14 +49,15 @@ function termsCheck()
         var amount_total = {$amount_total|escape:'htmlall':'UTF-8'};
         var public_key = "{$public_key|escape:'htmlall':'UTF-8'}";
         var order_id = {$order_id|escape:'htmlall':'UTF-8'};
-        var validation_url = "{$validation_url|escape:'htmlall':'UTF-u'}";
+        var validation_url = "{$validation_url nofilter}";
+        var url = "{$url|escape:'htmlall':'UTF-8'}";
         {literal}
         var config = {
             // replace the publicKey with yours
             "publicKey": public_key,
             "productIdentity": order_id,
             "productName": "Product",
-            "productUrl": "url",
+            "productUrl": url,
             "eventHandler": {
                 onSuccess (payload) {
                     // hit merchant api for initiating verfication
